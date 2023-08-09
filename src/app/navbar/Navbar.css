@@ -3,19 +3,19 @@
     padding: 0;
 }
 .navbar_heading{
-    font-size: 6vh;
-    padding: 1vh 2vh;
+    font-size: 8vh;
+    /* background-color: pink; */
+    display: inline;
+    padding: 1vh 4vh;
+    cursor: pointer;
     color:darkslateblue;
 }
-@media only screen and (max-width:950px) {
+.navbar_heading:hover{
+    color: slateblue;
+}
+
+@media only screen and (max-width:768px) {
     .navbar_heading{
         text-align: center;
-    }
-    
-}
-@media only screen and (max-width:950px) {
-    .navbar_heading{
-        text-align: center;
-    }
-    
-}
+    }  
+} 
