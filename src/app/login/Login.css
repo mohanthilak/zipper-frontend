@@ -21,9 +21,9 @@
 
 
 .login-with-google-btn {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
    
     transition: background-color .3s, box-shadow .3s;
       /* padding: 5vh; */
@@ -75,7 +75,7 @@
     /* padding-bottom: 5vh; */
  }
  .login_input input{
-    background-color: #cbcaca;
+    background-color: #e8e7e7;
     height: 4vh;
     width: 40vh;
     border: none;
