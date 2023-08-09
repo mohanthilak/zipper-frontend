@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar_heading{
+    font-size: 6vh;
+    padding: 1vh 2vh;
+    color:darkslateblue;
+}
+@media only screen and (max-width:950px) {
+    .navbar_heading{
+        text-align: center;
+    }
+    
+}
+@media only screen and (max-width:950px) {
+    .navbar_heading{
+        text-align: center;
+    }
+    
+}
