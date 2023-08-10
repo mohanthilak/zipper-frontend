@@ -29,7 +29,8 @@ const BookDetails = () => {
                 add to cart
                </button>
                <h3>book details</h3><br />
-               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia est voluptas quos eligendi assumenda unde ipsam eaque tempore. Inventore ab libero, ratione expedita nam dignissimos in natus deserunt vitae ullam?</p>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia est voluptas quos eligendi assumenda unde ipsam eaque tempore. Inventore ab libero, ratione expedita nam dignissimos in natus deserunt vitae ullam?
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi a commodi, rem enim minima maiores totam, deleniti quod, ipsum aliquid blanditiis inventore quasi! Aliquid ipsam voluptate quia non. Ipsum, iste.</p>
             </div>
         </div>
     </div>
