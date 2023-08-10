@@ -1,7 +1,11 @@
 import React from 'react'
 import './bookdetail.css'
+import NavbarSignin from '../navbarSignin/page'
 const BookDetails = () => {
   return (
+    <>
+
+   <NavbarSignin />
     <div className="bookdetails lol">
         <div className="row_details">
             <div className="col-2">
@@ -29,6 +33,7 @@ const BookDetails = () => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
