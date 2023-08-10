@@ -1,0 +1,36 @@
+.bookdetails{
+    max-width: 1000px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 20px;
+}
+.row_details{
+    display: flex;
+    align-items: center;
+    justify-content:space-around ;
+    flex-wrap: wrap;
+}
+.lol{
+    margin-top: 80px;
+}
+.small_imgs_row{
+    display: flex;
+    justify-content: space-around;
+}
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+.small_imgs_col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+.lol .col-2{
+    padding: 20px;
+}
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+    margin: 25px 0;
+
+}
