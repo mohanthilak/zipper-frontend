@@ -34,10 +34,10 @@ const NavbarSignin = () => {
       </ul>
 <div className="nav-icon">
     <a href="#"><i className="bx bx-search"></i></a>
-    <a href="#"><i classNamw='bx bx-user'></i></a>
+    <a href="#"><i className='bx bx-user'></i></a>
     <a href="#"><i className='bx bx-cart'></i></a>
-{/* onClick={burgermenu} */}
-    <div class='bx bx-menu'  id="menu-icon"></div>
+    {/* onClick={burgermenu}  */}
+    <div className='bx bx-menu'  id="menu-icon"></div>
 </div>
 
     </header>

@@ -1,11 +1,8 @@
 import React from 'react'
 import './Menupage.css'
-import image from '../../../public/next.svg'
 import NavbarSignin from '../navbarSignin/page'
 
 const Menupage = () => {
-
-
 
   return (
     <>
@@ -22,13 +19,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -41,13 +38,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -60,13 +57,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -79,13 +76,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -98,13 +95,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -117,13 +114,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -136,13 +133,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
@@ -155,13 +152,13 @@ const Menupage = () => {
           
         </div>
         <div className="heart-icon">
-          <i class='bx bx-heart'></i>
+          <i className='bx bx-heart'></i>
         </div>
         <div className="ratings">
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-          <i class='bx bx-star'></i>
-           <i class='bx bxs-star-half'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+          <i className='bx bx-star'></i>
+           <i className='bx bxs-star-half'></i>
         </div>
         <div className="price">
           <h4>ikigai</h4>
