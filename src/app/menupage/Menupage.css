@@ -3,32 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
-.menupage{
-    margin: auto 4%;
+
+.noScollbar::-webkit-scrollbar {
+    display: none;
 }
 .explore_text h2{
-    margin-top: 10vh;
-    padding: 3vh;
-    color: #111;
-font-size: 5vh;
-text-transform: capitalize;
-text-align: center;
+    /* margin-top: 10vh; */
+    /* padding: 3vh; */
+    /* color: #111; */
+/* font-size: 5vh; */
+/* text-transform: capitalize; */
+/* text-align: center; */
 }
 .books{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit,minmax(230px,auto));
-    gap: 2rem;
+    gap: 2rem; */
 }
-.row{
+/* .row{
     position: relative;
     transition: all .42s;
-}
-.row img{
-    width: 100%;
+} */
+ .row img{
+    width: 200px;
     height: auto;
     transition: all .40s;
 }
-.row img:hover{
+/*.row img:hover{
     transform: scale(0.9);
 }
 .heart-icon{
@@ -61,4 +62,4 @@ text-align: center;
         grid-template-columns: repeat(auto-fit,minmax(150px,auto));
         gap: 2rem;
     }
-}
+} */

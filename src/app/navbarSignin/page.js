@@ -20,7 +20,7 @@ const NavbarSignin = () => {
   // }
 
   return (
-    <header>
+    <header className="md:hidden">
       <a href="#">
         <h1 className="logo_navb">zipper</h1>
       </a>

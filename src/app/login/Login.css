@@ -74,10 +74,10 @@
  .login_input input{
     background-color: #e8e7e7;
     height: 5vh;
-    width: 50vh;
+    width: 55vh;
     border: none;
     font-size: 2vh;
-    padding:0 1vh; 
+    padding:0 7px; 
     margin: 1vh 0;
     
  }

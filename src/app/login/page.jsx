@@ -20,7 +20,7 @@ const Login = () => {
           <form >
             <div className="login_input">
               <label className="text-md font-semibold" htmlFor="">Username or email</label><br />
-              <input className="rounded-md" type="text" /> 
+              <input className="rounded-md w-[100%]" type="text" /> 
             </div>
             <div className="login_input">
               <div className="flex justify-between items-center">
@@ -29,11 +29,11 @@ const Login = () => {
               </div>
               <input className="rounded-md" type="text" /> <br />
             </div>
-            <div className="signin_button mt-3">
+            <button className="signin_button mb-3 w-full">
               SIGN IN
-            </div>
+            </button>
           </form>
-          <div className="signup_to text-md">
+          <div className="signup_to text-md hover:underline cursor-pointer">
           Don’t have an account? Sign up
           </div>
         </div>
