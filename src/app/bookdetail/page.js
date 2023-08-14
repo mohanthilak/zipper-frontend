@@ -24,9 +24,10 @@ const BookDetails = () => {
             </div>
             <div className="col-2">
                <h1>ikigai</h1>
+               <h5>Number of times Borrowed : <span>4</span></h5>
                <h4>20rs/week</h4>
                <button className='btn_detail'>
-                add to cart
+                Request borrow
                </button>
                <h3>book details</h3><br />
                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia est voluptas quos eligendi assumenda unde ipsam eaque tempore. Inventore ab libero, ratione expedita nam dignissimos in natus deserunt vitae ullam?

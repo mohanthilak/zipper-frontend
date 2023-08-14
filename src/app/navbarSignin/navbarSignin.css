@@ -69,8 +69,9 @@ header{
 @media(max-width:768px){
     .navmenu{
         position: absolute;
-        top: 100%;
-        right: 0%;
+        top: 100%; 
+        right: -100%;
+        /* right: -100%;  //chnges done here */
         width: 300px;
         height: 130vh;
         background: #edfff1;

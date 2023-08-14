@@ -11,14 +11,17 @@
     flex-wrap: wrap;
 }
 .lol{
-    margin-top: 80px;
+    margin-top: 8px;
 }
 .small_imgs_row{
     display: flex;
     justify-content: space-around;
 }
+.col-2{
+    /* background-color: red; */
+}
 .col-2 img{
-    max-width: 100%;
+    max-width: 80%;
     padding: 50px 0;
 }
 .small_imgs_col{
@@ -33,4 +36,40 @@
     min-width: 300px;
     margin: 25px 0;
 
+}
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 20px 0;
+    display: inline-block;
+    /* text-align: center; */
+}
+.col-2 h4{
+    margin: 25px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.col-2 h5{
+    font-size: 22px;
+    font-weight: 500;
+
+}
+.btn_detail{
+    padding: 5px 14px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: darkslateblue;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    margin: auto 5px;
+}
+.btn_detail :hover{
+    opacity: 0.5;
+}
+.col-2 h3{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 25px 0 0 0;
 }
