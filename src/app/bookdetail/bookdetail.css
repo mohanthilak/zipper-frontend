@@ -3,6 +3,7 @@
     margin: auto;
     padding-left: 25px;
     padding-right: 20px;
+    border-bottom: 2px solid black;
 }
 .row_details{
     display: flex;
@@ -72,4 +73,15 @@
     font-size: 25px;
     font-weight: 600;
     margin: 25px 0 0 0;
+}
+.details_and_pic{
+  
+}
+.reviews_all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    flex-wrap: wrap;
+    width: 100%;
 }
