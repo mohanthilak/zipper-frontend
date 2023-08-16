@@ -4,6 +4,7 @@ import './Menupage.css'
 import NavbarSignin from '../navbarSignin/page'
 import {AiOutlineBell, AiOutlineLeft, AiOutlineRight} from "react-icons/ai"
 
+import Link from 'next/link'
 const Menupage = () => {
   const nearYouRef = useRef();
   const exclusiveRef = useRef();
@@ -45,18 +46,20 @@ const Menupage = () => {
             </div>
           </div>
           <div ref={nearYouRef} className="books noScollbar flex gap-10  overflow-scroll [&>div]:flex-shrink-0">
-            
-            <div className='w-40  flex flex-col items-center'>
-              <div>
-                <img className=" w-32 h-48 my-4"  src="https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UF1000,1000_QL80_.jpg" alt="" />
+            <Link href="/bookdetail">
+              <div  className='w-40  flex flex-col items-center'>
+                <div>
+                  <img className=" w-32 h-48 my-4"  src="https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                </div>
+                <div className='mb-1  text-sm font-medium text-center leading-4'>
+                  <h1>The Subtle Art of Not Giving a F*ck</h1>
+                </div>
+                <div className='text-sm font-medium'>
+                  <h1>Price: 20/W</h1>
+                </div>
               </div>
-              <div className='mb-1  text-sm font-medium text-center leading-4'>
-                <h1>The Subtle Art of Not Giving a F*ck</h1>
-              </div>
-              <div className='text-sm font-medium'>
-                <h1>Price: 20/W</h1>
-              </div>
-            </div>
+            </Link>
+
             <div className='w-40 flex flex-col items-center'>
               <div>
                 <img className=" w-32 h-48 my-4"  src="https://5.imimg.com/data5/JU/IE/TE/SELLER-47422800/holistic-health-books-ikigai-the-japanese-secret-to-a-long-and-happy-life-500x500.jpg" alt="" />

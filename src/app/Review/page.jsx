@@ -2,7 +2,7 @@ import React from "react";
 import "./Review.css";
 const page = () => {
   return (
-    <div className="reviews_container">
+    <div className="reviews_container shadow-lg shadow-gray-400">
       <div className="reviews">
         <div className="top_review">
           <div className="profile">
@@ -12,9 +12,9 @@ const page = () => {
                 alt="pfp"
               />
             </div>
-            <div className="name_username">
-              <strong>John Doe</strong>
-              <span>@johnDoe</span>
+            <div className="flex flex-col ">
+              <h1 className="font-semibold">John Doe</h1>
+              <span className="text-sm ">11/2/23</span>
             </div>
           </div>
           <div className="stars_review">

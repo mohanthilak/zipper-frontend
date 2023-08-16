@@ -30,7 +30,9 @@
     }
   }
   
-
+.noScollbar::-webkit-scrollbar {
+    display: none;
+}
 
   @tailwind base;
 @tailwind components;
