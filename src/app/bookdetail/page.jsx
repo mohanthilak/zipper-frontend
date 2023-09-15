@@ -1,9 +1,17 @@
-"use-client";
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import "./bookdetail.css";
 import NavbarSignin from "../navbarSignin/page";
 import Review from "../Review/page";
+import { io } from "socket.io-client";
+
 const BookDetails = () => {
+  useEffect(()=>{
+    const socket = io("http://localhost:8000/");
+    socket.on("connect", (data)=>{
+      console.log(data)
+    })
+  }, [])
   return (
     <div className="details_and_pic overflow-hidden mb-10">
       <NavbarSignin />

@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     </head>
       <body>
           {pathname !== "/login" && pathname !== "/"? <div className='flex'>  
-            <div className='hidden md:flex h-screen sticky top-0 border w-[20%] bg-[#F4F4F6] pt-16 p-6  flex-col justify-between'>
+            <div className='hidden md:flex h-screen sticky top-0 border w-[20%] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
               <div className='flex gap-5 items-center'>
                   <div> 
                     <img className=' rounded-lg w-16 h-16' src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2023%2F05%2F25%2FElizabeth-Olsen-01-052523.jpg" alt="" />
