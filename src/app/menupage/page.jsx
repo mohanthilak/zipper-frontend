@@ -1,11 +1,46 @@
 'use client'
-import {useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import './Menupage.css'
 import NavbarSignin from '../navbarSignin/page'
 import {AiOutlineBell, AiOutlineLeft, AiOutlineRight} from "react-icons/ai"
+import useProtectedRoutes from '@/Hooks/useProtectedRoutes'
+import { useRouter } from 'next/navigation';
 
 import Link from 'next/link'
+import useAuth from '@/Hooks/useAuth'
+import axios from '@/Axios/axios'
+import LocationModal from '@/Components/LocationModal'
+import useUserLocation from '@/Hooks/useUserLocation'
+
 const Menupage = () => {
+  const {userLocation} = useUserLocation();
+  const { push } = useRouter();
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const {auth} = useAuth()
+  const protectRoute = useProtectedRoutes();
+
+  const toggleShowLocationModal = () => {
+    setShowLocationModal(e=>!e);
+  }
+
+  useEffect(()=>{
+    if(auth.accessToken){
+      if(userLocation?.latitude){
+        setShowLocationModal(false);
+      }else{
+        setShowLocationModal(true)
+      }
+    }
+  }, [userLocation])
+  
+  useEffect(()=>{
+
+    async function check(){
+      const result = await protectRoute()
+      if(!result) push("/login")
+    }
+    check()
+  }, [])
   const nearYouRef = useRef();
   const exclusiveRef = useRef();
   const scrollN = (scrollOffset) => {
@@ -15,21 +50,25 @@ const Menupage = () => {
     exclusiveRef.current.scrollLeft += scrollOffset;
   };
 
+  
+
   return (
     <div className='menupage  px-2 md:px-10 w-[100%] md:w-[80%] overflow-hidden' id='allBooks'>
       <NavbarSignin /> 
       <div className='mt-28 md:mt-16'>
+        {showLocationModal ? <LocationModal toggleShowLocationModal={toggleShowLocationModal}  />:""}
+          
+        
         <div className='mb-12 flex justify-between items-center py-2'>
           <div className="explore_text text-3xl font-semibold">
             <h2 className='text-[#002379]'>Explore</h2>
           </div>
-
           <div className='flex items-center justify-between gap-5'>
             <div>
                 <input style={{"boxShadow": "0 1px 10px 0 #808080", "outline": "none"}} className=' shadow-lg h-9 w-44 md:w-64  p-2 rounded-2xl' type="text" placeholder=" Search"  />
             </div>
             <div>
-              <AiOutlineBell className=' cursor-pointer' size={30}/>
+              <AiOutlineBell  className=' cursor-pointer' size={30}/>
             </div>
           </div>
         </div>
