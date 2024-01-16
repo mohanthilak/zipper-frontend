@@ -1,0 +1,45 @@
+.auth-page{
+    height: 80vh;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+}
+.auth-type-container{
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 20vh; */
+    /* background-color: pink; */
+    /* overflow: none; */
+    padding: 2vh;
+    /* background-color: rebeccapurple; */
+}
+
+.input-styling{
+    background-color: #e8e7e7;
+    height: 5vh;
+    width: 55vh;
+    border: none;
+    font-size: 2vh;
+    padding:0 7px; 
+    margin: 1vh 0;
+    
+ }
+  .input-styling:focus{
+    outline: none;
+}
+.input-box {
+    padding-bottom: 2vh;
+}
+.input-box p{
+    font-size: 1.8vh;
+    padding: 1vh 0;
+}
+.submit-btn{
+    background-color: rgb(38, 50, 86);
+    text-align: center;
+    padding: 0.4vh;
+    color: #fff;
+    font-size: 3vh;
+    border-radius: 5px;
+}

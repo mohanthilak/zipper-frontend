@@ -18,8 +18,8 @@ const useRefreshToken = () => {
     ).then(res=>{
       if (res.data.success) {
   
-        const { uid, accesstoken, name, profilePicture, currentLocation } = res.data.data;
-        const payload = { uid, accessToken: accesstoken, name, profilePicture};
+        const { uid, accesstoken, name, profilePicture, currentLocation, verificationStatus } = res.data.data;
+        const payload = { uid, accessToken: accesstoken, name, verificationStatus, profilePicture};
         console.log(currentLocation)
         setUserLocation(currentLocation)
         setAuth(payload);

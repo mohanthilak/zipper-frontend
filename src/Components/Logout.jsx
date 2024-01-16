@@ -14,7 +14,7 @@ const Logout = () => {
       }).then(res=>{
         if(res.data.success){
           setAuth({});
-          push("/login")
+          push("/auth/login")
         }
       }).catch(e=>{
         console.error("error while logging out:",e)

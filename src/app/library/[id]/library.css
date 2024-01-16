@@ -1,0 +1,82 @@
+.bookdetails{
+    /* margin:  ; */
+    /* padding-left: 25px; */
+    /* padding-right: 20px; */
+    /* border-bottom: 2px solid black; */
+}
+.row_details{
+    display: flex;
+    /* align-items: center;
+    justify-content:space-around; */
+}
+.small_imgs_row{
+    display: flex;
+    justify-content: space-around;
+}
+/* .col-1{
+    background-color: red;
+} */
+/* .col-2 img{
+    width: 50%;
+    padding: 50px 0;
+} */
+.small_imgs_col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+.lol .col-2{
+    padding: 20px;
+}
+.col-2{
+    
+    /* min-width: 300px; */
+    /* margin: 25px 0; */
+
+}
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 20px 0;
+    display: inline-block;
+    /* text-align: center; */
+}
+.col-2 h4{
+    margin: 25px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.col-2 h5{
+    font-size: 22px;
+    font-weight: 500;
+
+}
+.btn_detail{
+    padding: 5px 14px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: darkslateblue;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    margin: auto 5px;
+}
+.btn_detail :hover{
+    opacity: 0.5;
+}
+.col-2 h3{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 25px 0 0 0;
+}
+.details_and_pic{
+    width: 80%;
+  
+}
+.reviews_all{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* background-color: red; */
+    /* flex-wrap: wrap; */
+}

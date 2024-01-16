@@ -1,18 +1,4 @@
-.login{
-    height: 80vh;
-    display:flex ;
-    justify-content: center;
-    align-items: center;
-    
-}
-.login_container{
-    display: flex;
-    flex-direction: column;
-    /* margin-top: 20vh; */
-    /* background-color: pink; */
-    /* overflow: none; */
-    padding: 2vh;
-}
+
 /* .login_container h3{
     padding: 3vh 0;
     background-color: aqua;
@@ -53,55 +39,7 @@
    
   }
  
- /* .email_signin  {
-    padding-top: 4vh;
-    width: 100%; 
-    text-align: center; 
-    border-bottom: 1px solid #afafaf; 
-    line-height: 0.1em;
-    margin: 10px 0 20px; 
-    color: #565656;
- }  */
- 
- /* .email_signin span { 
-     background:#fff; 
-     padding:0 10px; 
- } */
-  
- /* .login_input label{
-    margin-bottom: 100vh;
- } */
- .login_input input{
-    background-color: #e8e7e7;
-    height: 5vh;
-    width: 55vh;
-    border: none;
-    font-size: 2vh;
-    padding:0 7px; 
-    margin: 1vh 0;
-    
- }
-  .login_input input:focus{
-    outline: none;
-}
-.login_input {
-    
-    padding-bottom: 2vh;
-}
-.login_input p{
-    font-size: 1.8vh;
-    padding: 1vh 0;
-}
-.signin_button{
-    background-color: rgb(38, 50, 86);
-    text-align: center;
-    padding: 0.4vh;
-    color: #fff;
-    font-size: 3vh;
-    /* width: 80px; */
 
-    border-radius: 5px;
-}
 .signup_to{
     padding: 2vh;
     text-align: center;

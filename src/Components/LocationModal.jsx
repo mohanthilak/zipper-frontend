@@ -7,15 +7,28 @@ const LocationModal = ({toggleShowLocationModal}) => {
   const {userLocation, setUserLocation} = useUserLocation()
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  useEffect(()=>{
+  const [locationType, setLocationnType] = useState(userLocation ? "user-location" : "current-location")
+  
+  const assignCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(function(position) {
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude)
       // setUserLocation({latitude: position.coords.latitude, longitude:position.coords.longitude})
     });
-  }, [])
+  }
 
-  const handleUpdateLocation = () => {
+  useEffect(()=>{
+    if(locationType === "user-location"){
+      setLatitude(userLocation.latitude)
+      setLongitude(userLocation.longitude)
+    }else{
+      assignCurrentLocation()
+    }
+  }, [locationType])
+
+  const handleUpdateLocation = (e) => {
+    e.preventDefault();
+    console.log({latitude, longitude})
     axiosPrivate.post("/user/update-loc", {
       latitude, longitude
     }).then(res=>{
@@ -25,7 +38,7 @@ const LocationModal = ({toggleShowLocationModal}) => {
         toggleShowLocationModal()
       }
     }).catch(e=>{
-      console.error("Error while updating the current location")
+      console.error("Error while updating the current location:", e)
     })
   }
 
@@ -39,17 +52,21 @@ const LocationModal = ({toggleShowLocationModal}) => {
         <p className='text-xs'>Note: Our app will make use of your location to provide you books that are available near you. You could also manually give location from where you would like to borrow books.</p>  
       </div>
       <div className='flex justify-center'>
+        <input type="radio" name="location-type" checked={locationType === "user-location"} onChange={(e)=>{setLocationnType("user-location")}}/> <span className='text-xs mr-4'>Previously Used Location</span>
+        <input type="radio" name="location-type" checked={locationType === "current-location"} onChange={(e)=>{setLocationnType("current-location")}}/> <span className='text-xs'>Current Location</span>
+      </div>
+      <div className='flex justify-center'>
 
             <div className='flex flex-col p-2'>
               <label htmlFor="latitude">Latitude</label>
-              <input className='w-44 border rounded-sm h-8  border-black px-2' defaultValue={latitude}  type="number" id="latitude" />
+              <input className='w-44 border rounded-sm h-8  border-black px-2' defaultValue={latitude} onChange={(e)=>setLatitude(e.target.value)} type="number" id="latitude" />
             </div >
       </div>
       <div className='flex justify-center'>
 
             <div className="flex flex-col p-2">
               <label htmlFor="longitude">Longitude</label>
-              <input type="number" className='w-44 border rounded-sm h-8 border-black px-2' defaultValue={longitude} id="longitude" />
+              <input type="number" className='w-44 border rounded-sm h-8 border-black px-2' defaultValue={longitude} onChange={e=>setLongitude(e.target.value)} id="longitude" />
             </div>
       </div>
             <div className='p-2 pt-4 flex justify-center'>
