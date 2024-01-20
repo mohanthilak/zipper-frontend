@@ -67,7 +67,7 @@ const Menupage = () => {
 
   useEffect(()=>{
     if(searchBooksText.length > 0) {
-      axiosPrivate.get(`/book/book/search/${searchBooksText}/${userLocation.longitude}/${userLocation.latitude}`).then(res=>{
+      axiosPrivate.get(`/book/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
         console.log("search Results:", res.data)
         if(res.data.success){
           setSearchedBooks(res.data.data)
@@ -175,7 +175,7 @@ const Menupage = () => {
                   <img className=" w-32 h-48 my-4"  src="https://m.media-amazon.com/images/I/41SfakDfYeS.jpg" alt="" />
                 </div>
                 <div className='mb-1 text-center text-sm font-medium leading-4 '>
-                  <h1>Once Upon a Time... in Hollywood</h1>
+                  <h1>Once Upon a Time in Hollywood</h1>
                 </div>
                 <div className='text-sm font-medium'>
                   <h1>Price: 20/W</h1>
@@ -244,7 +244,7 @@ const Menupage = () => {
           </div>
           <div ref={LibrariesRef} className="books noScollbar flex gap-10  overflow-scroll [&>div]:flex-shrink-0">
             {librariesNearYou.length > 0 && librariesNearYou.map((el,i)=>(
-              <div className='w-40  flex flex-col items-center'>
+              <div key={i} className='w-40  flex flex-col items-center'>
                 <Link href={`/library/${el._id}`}>
                   <div>
                     <img className=" w-32 h-48 my-4"  src={el.photo? el.photo : "https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UF1000,1000_QL80_.jpg"} alt="" />
