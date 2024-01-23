@@ -10,6 +10,7 @@ export const metadata = {
 }
 import Sidebar from '@/Components/Sidebar';
 import NavbarSignin from './navbarSignin/page';
+import { SocketProvider } from '@/Contexts/SocketProvider';
 
 export default function RootLayout({ children }) {
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <AuthProvider>
       <LocationProvider>
       <LibrariesProvider>
+      <SocketProvider>
         <body>
           <script src="https://accounts.google.com/gsi/client" async></script>
             {!pathname.startsWith('/auth') && pathname !== "/"? <div className='flex'>  
@@ -33,7 +35,8 @@ export default function RootLayout({ children }) {
               {children}
               </div> : [children]
             }
-          </body>
+        </body>
+      </SocketProvider>
       </LibrariesProvider>
       </LocationProvider>
       </AuthProvider>

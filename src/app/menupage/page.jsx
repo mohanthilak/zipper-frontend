@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 
 import Link from 'next/link'
 import useAuth from '@/Hooks/useAuth'
-import axios, { axiosPrivate } from '@/Axios/axios'
 import LocationModal from '@/Components/LocationModal'
 import useUserLocation from '@/Hooks/useUserLocation'
 import PageHeading from '@/Components/PageHeading'
@@ -21,6 +20,8 @@ const Menupage = () => {
   const [searchedBooks, setSearchedBooks] = useState([])
   const [searchBooksText, setSearchBooksText] = useState("");
   const [librariesNearYou, setLibrariesNearYou] = useState([]);
+  const [displayedBooks, setDisplayedBooks] = useState([]);
+  const [displayedLibraries, setDisplayedLibraries] = useState([]);
   
   const { push } = useRouter();
   
@@ -45,6 +46,7 @@ const Menupage = () => {
           if(res.data.success){
             console.log("!!@@!@!@", res.data.data)
             setNearYouBooks([...res.data.data])
+            setDisplayedBooks([...res.data.data])
           }else{
             console.log("***")
           }
@@ -53,8 +55,11 @@ const Menupage = () => {
         ])
 
         axiosPrivate.get(`/library/library/find/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
+          console.log("\n\n\nLibraries:", res.data, "\n\n\n")
           if(res.data.success){
+            console.log("!!!!!!!!!!!!!!!!!!1")
             setLibrariesNearYou(res.data.data);
+            setDisplayedLibraries(res.data.data)
           }else{
             console.log("error while fetching libraries near you")
           }
@@ -70,13 +75,16 @@ const Menupage = () => {
       axiosPrivate.get(`/book/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
         console.log("search Results:", res.data)
         if(res.data.success){
-          setSearchedBooks(res.data.data)
+          setDisplayedBooks(res.data.data.books);
+          setDisplayedLibraries(res.data.data.libraries)
         }else{
-          setSearchedBooks([])
+          setDisplayedBooks([])
+          setDisplayedLibraries([])
         }
       })
     }else{
-      setSearchedBooks([])
+      setDisplayedBooks(nearYouBooks)
+      setDisplayedLibraries(librariesNearYou)
     }
   }, [searchBooksText])
 
@@ -139,58 +147,10 @@ const Menupage = () => {
             <NotificationBell />
           </div>
         </div>
-
-        {searchBooksText.length > 0 && (
-          <div className='my-8'>
-            <div className='flex justify-between'>
-              <div className="explore_text text-2xl font-semibold mb-1">
-                <h2>Search Results</h2>
-              </div>
-              <div className='flex gap-5 pr-5'>
-                  <AiOutlineLeft onClick={() => ScrollListWithRefAndOffset(searchedBooksRef,-230)} className='rounded-xl bg-blue-100 p-1 cursor-pointer' style={{ fill: '#002379' }} size={30} />
-                  <AiOutlineRight onClick={() => ScrollListWithRefAndOffset(searchedBooksRef,230)} className='rounded-xl bg-blue-100 p-1 cursor-pointer' style={{ fill: '#002379' }} size={30} />
-              </div>
-            </div>
-            <div ref={searchedBooksRef} className="books noScollbar flex gap-10  overflow-scroll [&>div]:flex-shrink-0">
-
-              { searchedBooks && searchedBooks.map((el, i)=>(
-                <Link key={i} href={`/bookdetail/${el._id}`}>
-                <div  className='w-40  flex flex-col items-center'>
-                  <div>
-                    <img className=" w-32 h-48 my-4"  src={el.photos?.length ? el.photos[0] : "https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UF1000,1000_QL80_.jpg"} alt="" />
-                  </div>
-                  <div className='mb-1  text-sm font-medium text-center leading-4'>
-                    <h1>{el.name} By {el.author}</h1>
-                  </div>
-                  <div className='text-sm font-medium'>
-                    <h1>Price: {el.priceOfBorrowing}/W</h1>
-                    <h1>Distance: {CalculateDistance(el.location.coordinates[0], el.location.coordinates[1], userLocation.latitude, userLocation.longitude)} Kms</h1>
-                  </div>
-                </div>
-              </Link>  
-              ))}
-
-              <div className='w-40  flex flex-col items-center'>
-                <div>
-                  <img className=" w-32 h-48 my-4"  src="https://m.media-amazon.com/images/I/41SfakDfYeS.jpg" alt="" />
-                </div>
-                <div className='mb-1 text-center text-sm font-medium leading-4 '>
-                  <h1>Once Upon a Time in Hollywood</h1>
-                </div>
-                <div className='text-sm font-medium'>
-                  <h1>Price: 20/W</h1>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        )}
-
-        {/* Near You */}
         <div className='my-8'>
           <div className='flex justify-between'>
             <div className="explore_text text-2xl font-semibold mb-1">
-              <h2>Near You</h2>
+              <h2>Books Near You</h2>
             </div>
             <div className='flex gap-5 pr-5'>
                 <AiOutlineLeft onClick={() => ScrollListWithRefAndOffset(nearYouRef,-230)} className='rounded-xl bg-blue-100 p-1 cursor-pointer' style={{ fill: '#002379' }} size={30} />
@@ -199,7 +159,7 @@ const Menupage = () => {
           </div>
           <div ref={nearYouRef} className="books noScollbar flex gap-10  overflow-scroll [&>div]:flex-shrink-0">
 
-            { nearYouBooks && nearYouBooks.map((el, i)=>(
+            { displayedBooks && displayedBooks.map((el, i)=>(
               <Link key={i} href={`/bookdetail/${el._id}`}>
               <div  className='w-40  flex flex-col items-center'>
                 <div>
@@ -211,6 +171,7 @@ const Menupage = () => {
                 <div className='text-sm font-medium'>
                   <h1>Price: {el.priceOfBorrowing}/W</h1>
                   <h1>Distance: {CalculateDistance(el.location.coordinates[0], el.location.coordinates[1], userLocation.latitude, userLocation.longitude)} Kms</h1>
+                  <h1>Library: {el.library.length > 0? el.library[0].name : ''}</h1>
                 </div>
               </div>
             </Link>  
@@ -243,7 +204,7 @@ const Menupage = () => {
             </div>
           </div>
           <div ref={LibrariesRef} className="books noScollbar flex gap-10  overflow-scroll [&>div]:flex-shrink-0">
-            {librariesNearYou.length > 0 && librariesNearYou.map((el,i)=>(
+            {displayedLibraries.length > 0 && displayedLibraries.map((el,i)=>(
               <div key={i} className='w-40  flex flex-col items-center'>
                 <Link href={`/library/${el._id}`}>
                   <div>

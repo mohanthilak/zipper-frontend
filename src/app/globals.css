@@ -5,6 +5,11 @@
   color: black;
   opacity: 1;
 }
+body{
+  background-color: #ffffff;
+
+}
+  
 .lds-dual-ring {
     display: inline-block;
     width: 80px;

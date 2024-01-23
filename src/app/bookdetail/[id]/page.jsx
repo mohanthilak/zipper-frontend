@@ -8,30 +8,42 @@ import Link from 'next/link'
 import NotificationBell from '@/Components/NotificationBell/NotificationBell';
 import useProtectedRoutes from "@/Hooks/useProtectedRoutes";
 import useAuth from "@/Hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 const BookDetails = ({params}) => {
-  const axiosPrivate =useAxiosPrivate()
   const [book, setBook] = useState({});
+  const [allowRequestBorrow, setAllowRequestBorrow] = useState(true);
+  const axiosPrivate =useAxiosPrivate()
   const protectRoute = useProtectedRoutes();
   const {auth} = useAuth()
+  const { push } = useRouter();
+
 
   useEffect(()=>{
     axiosPrivate.get(`/book/book/borrower/${params.id}`).then(res=>{
-      console.log(res.data);
       if(res.data.success){
         setBook(res.data.data);
+        if(res.data.data?.owner == auth.uid){
+          setAllowRequestBorrow(false)
+        }else{
+          for (let i = 0; i < res.data.data.borrowRequest.length; i++) {
+            if(res.data.data.borrowRequest[i]?.user == auth.uid){
+              setAllowRequestBorrow(false)
+            }
+          } 
+        }
       }
     })
-  }, [])
+  }, [auth])
   
   useEffect(()=>{
     async function check(){
       const result = await protectRoute()
-      if(!result) push("/auth/login")
-      else console.log(auth)
-    }
+      if(!result) push("/auth/login") 
+      }
     check()
   }, [])
+
   const HandleRequestBorrow = (e) =>{
     e.preventDefault();
     axiosPrivate.post("/book/book/request-borrow", {
@@ -40,6 +52,7 @@ const BookDetails = ({params}) => {
     }).then(res =>{
       console.log(res.data);
       if(res.data.success){
+        setAllowRequestBorrow(false)
         alert("successfully request")
       }else if(res.data.error == "Already Request"){
         alert("Already Requested")
@@ -103,7 +116,7 @@ const BookDetails = ({params}) => {
             </div>
 
             <div className="mt-10">
-              <button onClick={HandleRequestBorrow} className="bg-[#122042] text-white px-4 py-3">Request borrow</button>
+              <button onClick={HandleRequestBorrow} className={`${allowRequestBorrow?"bg-[#122042]":"bg-[#000000] cursor-default"} text-white px-4 py-3`}>{allowRequestBorrow?"Request borrow":"Requested"}</button>
             </div>
             <br />
           </div>

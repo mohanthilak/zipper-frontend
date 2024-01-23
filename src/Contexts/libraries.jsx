@@ -16,7 +16,6 @@ export const LibrariesProvider = ({children}) => {
             const libraryBorrowedBooks = [];
             
             library.books.forEach(book=>{
-                console.log(library.name, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 if(book.isBorrowed){
                     libraryBorrowedBooks.push({...book, library:library.name, libraryID: library._id})
                 }

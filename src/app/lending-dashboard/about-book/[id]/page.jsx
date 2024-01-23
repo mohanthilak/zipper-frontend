@@ -62,7 +62,7 @@ const AboutBook = ({params}) => {
             <div className='flex mb-8'>
                 {/* left */}
                 <div className='mr-4 w-[20%]'>
-                    <img className=" w-44 h-64 my-3"  src="https://m.media-amazon.com/images/I/710iakVqBcL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                    <img className=" w-44 h-64 my-3"  src={book?.photos?.length>0 ? book.photos[0] : "https://m.media-amazon.com/images/I/710iakVqBcL._AC_UF1000,1000_QL80_.jpg"} alt="" />
                 </div>
                 {/* Right */}
                 <div className='flex flex-col gap-4 w-[75%]'>
