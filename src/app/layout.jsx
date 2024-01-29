@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
         <link rel="icon" href="./lol.jpg" sizes="any" />
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </head>
       <AuthProvider>
       <LocationProvider>

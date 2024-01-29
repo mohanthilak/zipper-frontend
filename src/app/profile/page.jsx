@@ -9,9 +9,9 @@ import useProtectedRoutes from '@/Hooks/useProtectedRoutes'
 import useAuth from '@/Hooks/useAuth'
 import { useRouter } from 'next/navigation'
 import useAxiosPrivate from '@/Hooks/useAxiosPrivate'
+import Head from 'next/head'
 
 const page = () => {
-  const [deposit, setDeposite] = useState(0);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
@@ -36,16 +36,21 @@ const page = () => {
 
       console.log("userDetails: ", res.data)
       if(res.data.success){
-        setDeposite(res.data.data.deposit);
+        // setDeposit(res.data.data.deposit);
         setEmail(res.data.data.email);
         setPhoneNumber(res.data.data.phoneNumber);
         setName(res.data.data.name)
       }
-    })  
+    })
+    
+    
   }, [auth])
 
-
   return (
+    <>
+    <Head>
+      <script src='https://checkout.razorpay.com/v1/checkout.js'></script>
+    </Head>
     <div className='px-16 w-full mt-32 md:mt-8'>
         <div className=''>
           <PageHeading title={"Profile Page"}/>
@@ -53,10 +58,11 @@ const page = () => {
 
         <div className='flex flex-col  items-center gap-10 md:flex-row md:justify-between'>
             <CurrentlyBorrowedComponent />
-            <DepositeComponent deposit={deposit} />
+            <DepositeComponent />
         </div>
-        <UserDetails name={name} phoneNumber={phoneNumber} email={email} />
+        {/* <UserDetails name={name} phoneNumber={phoneNumber} email={email} /> */}
     </div>
+    </>
   )
 }
 
