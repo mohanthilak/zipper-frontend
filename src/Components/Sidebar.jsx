@@ -49,7 +49,7 @@ const Sidebar = () => {
       }
     }, [auth])
   return (
-    <div className='hidden md:flex h-screen sticky top-0 border w-[20%] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
+    <div className='hidden md:flex h-screen sticky top-0 border w-[20%] max-w-[250px] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
         {showLocationModal ? <LocationModal toggleShowLocationModal={toggleShowLocationModal}  />:""}
     
     <div className='flex gap-5 items-center'>
@@ -70,13 +70,13 @@ const Sidebar = () => {
         </div> 
     </div>
 
-      <div className='flex flex-col'>
-        <div className='py-2  cursor-pointer'>
-          <h1 className='font-semibold text-xl '>Lending:</h1>
-        </div>
+      <div className='flex flex-col py-2'>
+        {/* <div className='cursor-pointer'>
+          <h1 className='font-semibold md:text-lg lg:text-xl '>Lending:</h1>
+        </div> */}
         <Link href="/lending-dashboard">
-          <div className='flex justify-between items-center py-1 hover:underline cursor-pointer'>
-            <h1 className='font-semibold text-lg '>Lending Dashboard</h1>
+          <div className='flex justify-between items-center  hover:underline cursor-pointer'>
+            <h1 className='font-semibold lg:text-xl '>Lending Dashboard</h1>
             <AiOutlineRight  size={15}/>
           </div>
         </Link>
@@ -85,13 +85,31 @@ const Sidebar = () => {
       <div className='flex flex-col'>
         <Link href="/menupage">
           <div className='flex justify-between items-center py-1 hover:underline cursor-pointer'>
-            <h1 className='font-semibold text-lg '>Home</h1>
+            <h1 className='font-semibold md:text-lg lg:text-xl '>Home</h1>
+            <AiOutlineRight  size={15}/>
+          </div>
+        </Link>
+      </div>
+      
+      <div className='flex flex-col'>
+        <Link href="/profile">
+          <div className='flex justify-between items-center py-1 hover:underline cursor-pointer'>
+            <h1 className='font-semibold md:text-lg lg:text-xl '>Profile</h1>
+            <AiOutlineRight  size={15}/>
+          </div>
+        </Link>
+      </div>
+      
+      <div className='flex flex-col'>
+        <Link href="/profile">
+          <div className='flex justify-between items-center py-1 hover:underline cursor-pointer'>
+            <h1 className='font-semibold md:text-lg lg:text-xl '>Return Book</h1>
             <AiOutlineRight  size={15}/>
           </div>
         </Link>
       </div>
 
-      <div className='flex flex-col '>
+      {/* <div className='flex flex-col '>
         <div className='py-2 cursor-pointer'>
           <h1 className='font-semibold text-xl '>Borrowing:</h1>
         </div>
@@ -111,14 +129,14 @@ const Sidebar = () => {
           <h1 className='font-semibold text-lg'>Books</h1>
           <AiOutlineRight  size={15}/>
         </div>
-      </div>
+      </div> */}
 
       <div>
         <h1 className='font-semibold text-lg py-1 text-[#002379]'>Currently Reading</h1>
         <div className='flex gap-5'>
           <img className=" w-10 h-16"  src="https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UF1000,1000_QL80_.jpg" alt="" />
           <div>
-            <p className=' text-sm font-medium'>The Subtle Art of Not Giving a F*ck</p>
+            <p className='md:text-xs lg:text-sm font-medium'>The Subtle Art of Not Giving a F*ck</p>
             <p className='text-xs font-medium'>Number of weeks: 2</p>
             <p className='text-xs font-medium'>Price: 40</p>
           </div>

@@ -80,7 +80,7 @@ const DepositeComponent = () => {
   return (
     <>
     <Head>
-      <script src='https://checkout.razorpay.com/v1/checkout.js'></script>
+      <script defer src='https://checkout.razorpay.com/v1/checkout.js'></script>
     </Head>
     <div className='shadow-2xl rounded-3xl h-[310px] w-72 md:w-1/4 p-5 flex flex-col justify-between'>
         <div className=''>

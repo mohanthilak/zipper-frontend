@@ -8,7 +8,7 @@ import Review from '@/app/Review/page'
 import Link from 'next/link';
 import useProtectedRoutes from '@/Hooks/useProtectedRoutes';
 import useAuth from '@/Hooks/useAuth';
-const page = ({params}) => {
+const Library = ({params}) => {
     const [library, setLibrary] = useState();
     const axiosPrivate = useAxiosPrivate();
     const protectRoute = useProtectedRoutes();
@@ -115,4 +115,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default Library

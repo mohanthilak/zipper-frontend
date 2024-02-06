@@ -5,7 +5,7 @@ import useUserLibraries from '@/Hooks/useLibraries'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-const page = ({params}) => {
+const Page = ({params}) => {
   const [library, setLibrary] = useState({})
 
   const axiosPrivate = useAxiosPrivate()
@@ -139,4 +139,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default Page

@@ -22,14 +22,14 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
         <link rel="icon" href="./lol.jpg" sizes="any" />
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script defer src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </head>
       <AuthProvider>
       <LocationProvider>
       <LibrariesProvider>
       <SocketProvider>
         <body>
-          <script src="https://accounts.google.com/gsi/client" async></script>
+          <script defer src="https://accounts.google.com/gsi/client" async></script>
             {!pathname.startsWith('/auth') && pathname !== "/"? <div className='flex'>  
             <Sidebar />
             <NavbarSignin />

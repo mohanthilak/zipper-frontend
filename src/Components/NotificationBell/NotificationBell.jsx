@@ -7,7 +7,6 @@ import useSocket from '@/Hooks/useSocket';
 import Link from 'next/link';
 import useAuth from '@/Hooks/useAuth';
 import useAxiosPrivate from '@/Hooks/useAxiosPrivate';
-import axios from '@/Axios/axios';
 
 const NotificationBell = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -25,7 +24,7 @@ const NotificationBell = () => {
   useEffect(()=>{
     if(auth?.uid){
       console.log({auth: auth.uid})
-      axiosPrivate.get(`http://localhost:8000/${auth.uid}`).then(res=>{
+      axiosPrivate.get(`/notification/notification/${auth.uid}`).then(res=>{
         if(res.data.success){
           setNotificationList(res.data.data)
         }

@@ -8,7 +8,7 @@ import useAxiosPrivate from '@/Hooks/useAxiosPrivate';
 import useProtectedRoutes from '@/Hooks/useProtectedRoutes';
 import { useRouter } from 'next/navigation';
 
-const layout = ({childer}) => {
+const Layout = ({childer}) => {
     
     const [phoneNumber, setPhoneNumber] = useState(0);
     const [otp, setOtp] = useState();
@@ -76,4 +76,4 @@ const layout = ({childer}) => {
   )
 }
 
-export default layout
+export default Layout

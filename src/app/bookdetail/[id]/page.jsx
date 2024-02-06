@@ -131,7 +131,7 @@ const BookDetails = ({params}) => {
       {book && book.reviews?.length (
         <div className="reviews_all noScollbar px-16 flex  gap-10  overflow-scroll [&>div]:flex-shrink-0 pb-10">
           {book.reviews.map((el, i)=>(
-            <Review userId={el.userID} userName={el.userName} rating={el.rating} review={el.review} />
+            <Review key={i} userId={el.userID} userName={el.userName} rating={el.rating} review={el.review} />
           ))}
         </div>
         )}

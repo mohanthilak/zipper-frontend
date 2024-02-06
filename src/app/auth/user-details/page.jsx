@@ -5,7 +5,7 @@ import useProtectedRoutes from '@/Hooks/useProtectedRoutes';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react'
 
-const page = () => {
+const UserDetails = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -69,4 +69,4 @@ const page = () => {
   )
 }
 
-export default page
+export default UserDetails

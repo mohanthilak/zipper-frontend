@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 import useAxiosPrivate from '@/Hooks/useAxiosPrivate'
 import Head from 'next/head'
 
-const page = () => {
+const Profile = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(0);
@@ -49,7 +49,7 @@ const page = () => {
   return (
     <>
     <Head>
-      <script src='https://checkout.razorpay.com/v1/checkout.js'></script>
+      <script defer src='https://checkout.razorpay.com/v1/checkout.js'></script>
     </Head>
     <div className='px-16 w-full mt-32 md:mt-8'>
         <div className=''>
@@ -60,10 +60,10 @@ const page = () => {
             <CurrentlyBorrowedComponent />
             <DepositeComponent />
         </div>
-        {/* <UserDetails name={name} phoneNumber={phoneNumber} email={email} /> */}
+         <UserDetails name={name} phoneNumber={phoneNumber} email={email} /> 
     </div>
     </>
   )
 }
 
-export default page
+export default Profile
