@@ -47,6 +47,7 @@ const Login = () => {
         })
       }
     })
+    console.log({env: process.env.NODE_ENV})
 
     google.accounts.id.renderButton(
       document.getElementById("googleBTN"),
