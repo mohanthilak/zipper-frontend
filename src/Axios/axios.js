@@ -4,6 +4,8 @@ console.log("\n!@!!!@!@!@", {env: process.env.NODE_ENV})
 if(process.env.NODE_ENV === "production"){
   baseURL = process.env.BasePath_prod;
 }
+console.log({BaseURL: baseURL})
+
 export default axios.create({
   baseURL,
 });
