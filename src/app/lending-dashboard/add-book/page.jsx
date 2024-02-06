@@ -38,7 +38,7 @@ const AddBook = () => {
         const mainData = {name, author, mrp, priceOfBorrowing, location, about}
         data.append("data", JSON.stringify(mainData))
 
-        axiosPrivate.post(`http://localhost:4000/book/book/add/${libID}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}).then(res=>{
+        axiosPrivate.post(`/book/book/add/${libID}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}).then(res=>{
             console.log(res.data);
             if(res.data.success) {
                 alert("successfully added")
