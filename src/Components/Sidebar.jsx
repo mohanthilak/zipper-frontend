@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import Logout from '@/Components/logout';
+import Logout from '@/Components/Logout';
 import LocationModal from '@/Components/LocationModal'
 
 import {AiOutlineRight} from "react-icons/ai"
