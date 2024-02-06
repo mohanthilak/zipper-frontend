@@ -3,7 +3,7 @@ let baseURL =process.env.NODE_ENV === "production"? process.env.NEXT_PUBLIC_Base
 console.log("\n!@!!!@!@!@", {env: process.env.NODE_ENV})
 
  
-
+console.log({baseURL})
 export default axios.create({
   baseURL,
 });
