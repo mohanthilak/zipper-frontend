@@ -17,6 +17,7 @@ const Login = () => {
   }, [])
 
   const handleLoginSuccess = (data) => {
+    console.log({env: process.env.NODE_ENV})
     console.log(data)
     setAuth({uid: data.uid, accessToken: data.accessToken, name: data.name, profilePicture: data.profilePicture, verificationStatus: data.verificationStatus})
     if(data.verificationStatus.includes('name-entry')) push("/auth/user-details")
