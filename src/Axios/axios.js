@@ -1,10 +1,8 @@
 import axios from "axios";
-let baseURL = "http://localhost:4000";
+let baseURL =process.env.NODE_ENV === "production"? process.env.NEXT_PUBLIC_BasePath_prod :"http://localhost:4000";
 console.log("\n!@!!!@!@!@", {env: process.env.NODE_ENV})
-if(process.env.NODE_ENV === "production"){
-  baseURL = process.env.BasePath_prod;
-}
-console.log({BaseURL: baseURL})
+
+ 
 
 export default axios.create({
   baseURL,
