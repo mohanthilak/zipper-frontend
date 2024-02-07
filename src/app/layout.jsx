@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <link rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
         <link rel="icon" href="./lol.jpg" sizes="any" />
