@@ -2,6 +2,7 @@
   "name": "zipper",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://quizo-api.onrender.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
