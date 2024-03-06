@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> */}
         <link rel="stylesheet"
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
 
         <link rel="icon" href="./lol.jpg" sizes="any" />
         <script defer src="https://checkout.razorpay.com/v1/checkout.js"></script>
