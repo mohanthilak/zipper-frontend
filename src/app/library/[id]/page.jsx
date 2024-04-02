@@ -14,18 +14,18 @@ const Library = ({params}) => {
     const protectRoute = useProtectedRoutes();
     const {auth} = useAuth()
     
-    
+    let libraryPath = ""
+    libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
     useEffect(()=>{
       async function check(){
         const result = await protectRoute()
         if(!result) push("/auth/login")
-        else console.log(auth)
       }
       check()
     }, [])
     useEffect(()=>{
-        axiosPrivate.get(`/library/library/find/${params.id}`).then(res=>{
-            console.log(res.data)
+        axiosPrivate.get(libraryPath+`/library/find/${params.id}`).then(res=>{
             if(res.data.success){
                 setLibrary(res.data.data);
             }
@@ -88,7 +88,6 @@ const Library = ({params}) => {
               { library?.books?.map((el, i)=>(
                 <Link href={`/bookdetail/${el._id}`} key={i}>
                 <div className='flex gap-2 w-72 hover:shadow-2xl rounded-2xl' >
-                  {console.log(el.photos[0])}
                   <img src={el.photos?.length > 0 ? el.photos[0]:"https://m.media-amazon.com/images/I/81caWwaOOKL._AC_UF894,1000_QL80_.jpg"} className='w-24' />
                   <div>
                     <h1 className='font-semibold text-md mb-2'>{el.name}</h1>

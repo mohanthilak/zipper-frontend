@@ -17,10 +17,11 @@ const BookDetails = ({params}) => {
   const protectRoute = useProtectedRoutes();
   const {auth} = useAuth()
   const { push } = useRouter();
-
+  let libraryPath = ""
+  libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
 
   useEffect(()=>{
-    axiosPrivate.get(`/book/book/borrower/${params.id}`).then(res=>{
+    axiosPrivate.get(libraryPath+`/book/borrower/${params.id}`).then(res=>{
       if(res.data.success){
         setBook(res.data.data);
         if(res.data.data?.owner == auth.uid){
@@ -46,11 +47,10 @@ const BookDetails = ({params}) => {
 
   const HandleRequestBorrow = (e) =>{
     e.preventDefault();
-    axiosPrivate.post("/book/book/request-borrow", {
+    axiosPrivate.post(libraryPath+"/book/request-borrow", {
       book_id: params.id,
       timestamp: Date.now()
     }).then(res =>{
-      console.log(res.data);
       if(res.data.success){
         setAllowRequestBorrow(false)
         alert("successfully request")

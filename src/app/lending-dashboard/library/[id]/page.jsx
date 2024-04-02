@@ -11,9 +11,12 @@ const Page = ({params}) => {
   const axiosPrivate = useAxiosPrivate()
   const {auth} = useAuth();
   const {handleSetLibraries, libraries, bookBorrowRequest} = useUserLibraries()
+  
+  let libraryPath = ""
+  libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
 
   useEffect(()=>{
-    axiosPrivate.get(`/library/library/uid/${auth.uid}`).then(res=>{
+    axiosPrivate.get(libraryPath+`/library/uid/${auth.uid}`).then(res=>{
       if(res.data.success){
         handleSetLibraries(res.data.data)
 
@@ -25,7 +28,6 @@ const Page = ({params}) => {
     if(libraries.length > 0)
     libraries.forEach(e => {
       if(e._id == params.id){
-        console.log(e)
         setLibrary(e)
         return;
       }
@@ -79,7 +81,6 @@ const Page = ({params}) => {
               { library?.books?.map((el, i)=>(
                 <Link href={`/lending-dashboard/about-book/${el._id}`} key={i}>
                 <div className='flex gap-2 w-72 hover:shadow-2xl rounded-2xl' >
-                  {console.log(el.photos[0])}
                   <img src={el.photos?.length > 0 ? el.photos[0]:"https://m.media-amazon.com/images/I/81caWwaOOKL._AC_UF894,1000_QL80_.jpg"} className='w-24' />
                   <div>
                     <h1 className='font-semibold text-md mb-2'>{el.name}</h1>

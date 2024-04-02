@@ -9,11 +9,12 @@ const AboutBook = ({params}) => {
     const [isIssued, setIsIssued] = useState(false);
     const [isBorrowed, setIsBorrowed] = useState(false);
     const [recepient, setRecipient] = useState()
-    
+    let libraryPath = ""
+    libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
     useEffect(()=>{
-        axios.get(`/library/book/${params.id}`).then(res=>{
+        axios.get(libraryPath+`/book/${params.id}`).then(res=>{
             if(res.data.success){
-                console.log(res.data)
                 setBook(res.data.data);
                 setBookRequests(res.data.data.borrowRequest)
                 if (res.data.data.isIssued){
@@ -41,7 +42,7 @@ const AboutBook = ({params}) => {
 
     const handleIssue=(requestID, user)=>{
         if(!requestID || !user || disableIssue)return;
-        axiosPrivate.post("/library/book/issue-book", {
+        axiosPrivate.post(libraryPath+"/book/issue-book", {
             requestID, issuedTo: user, bookID:book._id
         }).then(res=>{
             if(!res.data.success) alert(res.data.error)

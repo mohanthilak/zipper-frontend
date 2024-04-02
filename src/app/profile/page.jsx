@@ -19,7 +19,8 @@ const Profile = () => {
   const {auth} = useAuth()
   const protectRoute = useProtectedRoutes();
   const { push } = useRouter();
-  
+  let userPath = ""
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL
   const axiosPrivate = useAxiosPrivate()
   
   useEffect(()=>{
@@ -30,11 +31,10 @@ const Profile = () => {
     }
     check()
   }, [])
+  
 
   useEffect(()=>{
-    axiosPrivate.get("/user").then(res=>{
-
-      console.log("userDetails: ", res.data)
+    axiosPrivate.get(userPath+"/user").then(res=>{
       if(res.data.success){
         // setDeposit(res.data.data.deposit);
         setEmail(res.data.data.email);

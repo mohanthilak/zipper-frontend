@@ -14,6 +14,11 @@ const CreateLibrary = () => {
 
     const axiosPrivate = useAxiosPrivate();
     const { push } = useRouter();
+    
+    let libraryPath = ""
+    console.log({PRODUSERURL:process.env.NEXT_PUBLIC_Library_Prod_URL})
+    libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
 
     const SendCreateLibraryRequest = (e) =>{
         e.preventDefault();
@@ -22,11 +27,10 @@ const CreateLibrary = () => {
             return;
         };
 
-        axiosPrivate.post("/library/library/create", {
+        axiosPrivate.post(libraryPath+"/library/create", {
             location:{type: "Point", coordinates: [latitude, longitude]},
             name, city, state, about: aboutLibrary, address
         }).then(res=>{
-            console.log(res)
             if(res.data.success){
                 // push('/lending-dashboard');
             }

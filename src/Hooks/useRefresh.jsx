@@ -8,9 +8,12 @@ const useRefreshToken = () => {
   const {setUserLocation} = useUserLocation();
 
   const refresh = async () => {
+    let userPath = ""
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL
+    
     let returnResult;
      await axios.post(
-      "/user/refresh",
+      userPath+"/user/refresh",
       {},
       {
         withCredentials: true,
@@ -20,7 +23,6 @@ const useRefreshToken = () => {
   
         const { uid, accesstoken, name, profilePicture, currentLocation, verificationStatus } = res.data.data;
         const payload = { uid, accessToken: accesstoken, name, verificationStatus, profilePicture};
-        console.log(currentLocation)
         setUserLocation(currentLocation)
         setAuth(payload);
         returnResult = true;

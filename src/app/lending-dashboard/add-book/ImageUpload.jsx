@@ -23,7 +23,6 @@ const ImageUpload = ({file, setFile,name, setPreview}) => {
         }
 
         // I've kept this example simple by using the first image instead of multiple
-        console.log("Front")
         setFile(e.target.files[0])
     }
   return (

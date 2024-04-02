@@ -10,10 +10,13 @@ const LendingDashBoard = () => {
   const axiosPrivate = useAxiosPrivate();
   const {handleSetLibraries, borrowedBooks, bookBorrowRequest, libraries} = useUserLibraries()
   const {auth} = useAuth()
+  
+  let libraryPath = ""
+  libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
   useEffect(()=>{
-    axiosPrivate.get(`/library/library/uid/${auth.uid}`).then(res=>{
+    axiosPrivate.get(libraryPath+`/library/uid/${auth.uid}`).then(res=>{
       if(res.data.success){
-        console.log(res.data)
         handleSetLibraries(res.data.data)
       }
     }).catch(e=>{

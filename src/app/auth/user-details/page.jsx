@@ -16,6 +16,10 @@ const UserDetails = () => {
     const axiosPrivate = useAxiosPrivate()
     const protectRoute = useProtectedRoutes();
     
+    let userPath = ""
+    console.log({PRODUSERURL:process.env.NEXT_PUBLIC_User_Prod_URL})
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL  
+
     useEffect(()=>{
         async function check(){
           const result = await protectRoute()
@@ -35,7 +39,8 @@ const UserDetails = () => {
       alert("Enter First Name");
       return;
     }
-    axiosPrivate.post("/user/update-name", {
+
+    axiosPrivate.post(userPath+"/user/update-name", {
       firstName, lastName
     }).then(res=>{
       console.log(res)

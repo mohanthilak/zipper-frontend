@@ -8,8 +8,10 @@ const Logout = () => {
     
     const {auth, setAuth} = useAuth()
     const {push} = useRouter()
+    let userPath = ""
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL
     const handleLogout = () => {
-      axiosPrivate.post("/user/logout", {
+      axiosPrivate.post(userPath+"/user/logout", {
         accessToken: auth.accessToken
       }).then(res=>{
         if(res.data.success){

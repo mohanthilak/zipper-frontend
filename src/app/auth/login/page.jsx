@@ -12,13 +12,14 @@ const Login = () => {
   const { push } = useRouter();
   const {auth, setAuth} = useAuth()
 
+  let userPath = ""
+  userPath = process.env.NEXT_PUBLIC_User_Prod_URL  
+
   useEffect(()=>{
     if(auth?.accessToken) push("/menupage")
   }, [])
 
   const handleLoginSuccess = (data) => {
-    console.log({env: process.env.NODE_ENV})
-    console.log(data)
     setAuth({uid: data.uid, accessToken: data.accessToken, name: data.name, profilePicture: data.profilePicture, verificationStatus: data.verificationStatus})
     if(data.verificationStatus.includes('name-entry')) push("/auth/user-details")
     else if(data.verificationStatus.includes('phone-verification')) push('/auth/phone-verification')
@@ -29,10 +30,8 @@ const Login = () => {
     google.accounts.id.initialize({
       client_id: process.env.NEXT_PUBLIC_Google_Auth_ClientID,
       callback: (res)=>{
-        console.log("Encoded JWT ID:", res.credential)
-        // console.log("decoded JWT ID:", decode(res.credential))
 
-        axios.post("/user/signup", {
+        axios.post(userPath+"/user/signup", {
           token: res.credential
         },
         {
@@ -61,14 +60,14 @@ const Login = () => {
       alert("Email/Password Empty!");
       return;
     }
-    axios.post("/user/signup", {
+    
+    axios.post(userPath+"/user/signup", {
       email:username,password
     },
     {
       withCredentials: true
     }
     ).then(res=>{
-      console.log(res.data)
       if(res.data.success){
         handleLoginSuccess(res.data.data);
       }

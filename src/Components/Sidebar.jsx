@@ -18,11 +18,12 @@ const Sidebar = () => {
     const axiosPrivate = useAxiosPrivate();
     const [showLocationModal, setShowLocationModal] = useState(false);
     const {handleSetLibraries} = useUserLibraries();
+    let libraryPath = ""
+    libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
 
     useEffect(()=>{
       if(userLocation.latitude && process.env.NEXT_PUBLIC_GeoCodeAccessToken){
         axios.get(`https://us1.locationiq.com/v1/reverse?key=${process.env.NEXT_PUBLIC_GeoCodeAccessToken}&lat=${userLocation.latitude}&lon=${userLocation.longitude}&format=json`).then(res=>{
-          console.log("address:", res.data)
           if(res.data.address.neighbourhood) setArea(res.data.address.neighbourhood)
           else if(res.data.address.suburb) setArea(res.data.address.suburb)
         }).catch(e=>{
@@ -39,8 +40,7 @@ const Sidebar = () => {
 
     useEffect(()=>{
       if(auth?.uid){
-        axiosPrivate.get(`/library/library/uid/${auth.uid}`).then(res=>{
-          console.log(res.data)
+        axiosPrivate.get(libraryPath+`/library/uid/${auth.uid}`).then(res=>{
           if(res.data.success){
             handleSetLibraries(res.data.data)
           }

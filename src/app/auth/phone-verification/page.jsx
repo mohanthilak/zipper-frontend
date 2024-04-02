@@ -19,6 +19,9 @@ const Layout = ({childer}) => {
     
     const axiosPrivate = useAxiosPrivate()
     const protectRoute = useProtectedRoutes();
+
+    let userPath = ""
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL  
     
     useEffect(()=>{
         async function check(){
@@ -34,10 +37,9 @@ const Layout = ({childer}) => {
         alert("Enter Phone Number")
         return;  
       }
-      axiosPrivate.post("/user/update-phoneNumber", {
+      axiosPrivate.post(userPath+"/user/update-phoneNumber", {
         phoneNumber,
       }).then(res=>{
-        console.log(res.data);
         if(res.data.success) setDisplayOTP(true);
         else setDisplayOTP(false)
       }).catch(e=>{
@@ -53,8 +55,7 @@ const Layout = ({childer}) => {
         alert("Enter OTP")
         return;
       }
-      console.log(typeof phoneNumber)
-      axiosPrivate.post('/user/phone-verification', {
+      axiosPrivate.post(userPath+'/user/phone-verification', {
         otp, phoneNumber: parseInt(phoneNumber) 
       }).then(res=>{
         if(res.data.success) push("/menupage")

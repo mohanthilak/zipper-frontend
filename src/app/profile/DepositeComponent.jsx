@@ -10,10 +10,11 @@ const DepositeComponent = () => {
 
   const {auth} = useAuth()
   const axiosPrivate = useAxiosPrivate()
-  
+  let userPath = ""
+    userPath = process.env.NEXT_PUBLIC_User_Prod_URL
   
   useEffect(()=>{
-    axiosPrivate.get(`/user/wallet/${auth?.uid}`).then(res=>{
+    axiosPrivate.get(userPath+`/user/wallet/${auth?.uid}`).then(res=>{
       if(res.data.success){
         setDeposit(res.data.data.amount);
       }
@@ -70,7 +71,6 @@ const DepositeComponent = () => {
                   alert(response.error.reason);
                   alert(response.error.metadata.order_id);
                   alert(response.error.metadata.payment_id);
-                  console.log("Razorpay Error: ", response.error)
           });
           rzp1.open();
           }

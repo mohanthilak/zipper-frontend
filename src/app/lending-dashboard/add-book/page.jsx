@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import useAxiosPrivate from '@/Hooks/useAxiosPrivate';
 import useUserLibraries from '@/Hooks/useLibraries';
 import ImageUpload from './ImageUpload';
-import axios from '@/Axios/axios';
 import { useRouter } from 'next/navigation';
 
 const AddBook = () => {
@@ -25,6 +24,9 @@ const AddBook = () => {
     const axiosPrivate = useAxiosPrivate()
     const { push } = useRouter();
 
+    let libraryPath = ""
+    libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
     const sendAddBookRequest = (e)=>{
         e.preventDefault();
         if(name=="" || libID=="" || author == "" || about == "" || !firstPageimgFile || !frontimgFile || !backimgFile){
@@ -38,8 +40,7 @@ const AddBook = () => {
         const mainData = {name, author, mrp, priceOfBorrowing, location, about}
         data.append("data", JSON.stringify(mainData))
 
-        axiosPrivate.post(`/book/book/add/${libID}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}).then(res=>{
-            console.log(res.data);
+        axiosPrivate.post(libraryPath+`/book/add/${libID}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}).then(res=>{
             if(res.data.success) {
                 alert("successfully added")
                 push(`/lending-dashboard/library/${libID}`)
@@ -81,7 +82,6 @@ const AddBook = () => {
                             libraries.forEach(el => {
                                 if(el._id == e.target.value){
                                     const loc = {coordinates: el.location.coordinates, type: el.location.type}
-                                    console.log(el, loc);
                                     setLocation(loc)
                                     return;
                                 }

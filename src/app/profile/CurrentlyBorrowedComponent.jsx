@@ -6,7 +6,7 @@ import { AiOutlineLeft, AiOutlineRight} from "react-icons/ai"
 const CurrentlyBorrowedComponent = () => {
 
     const currentlyBorrowedRef = useRef();
-
+    
 
     const ScrollListWithRefAndOffset = (reff, scrollOffset) => {
         reff.current.scrollLeft += scrollOffset; 

@@ -16,6 +16,9 @@ const LocationModal = ({toggleShowLocationModal}) => {
       // setUserLocation({latitude: position.coords.latitude, longitude:position.coords.longitude})
     });
   }
+  let userPath = ""
+  console.log({PRODUSERURL:process.env.NEXT_PUBLIC_User_Prod_URL})
+  userPath = process.env.NEXT_PUBLIC_User_Prod_URL
 
   useEffect(()=>{
     if(locationType === "user-location"){
@@ -29,7 +32,7 @@ const LocationModal = ({toggleShowLocationModal}) => {
   const handleUpdateLocation = (e) => {
     e.preventDefault();
     console.log({latitude, longitude})
-    axiosPrivate.post("/user/update-loc", {
+    axiosPrivate.post(userPath+"/user/update-loc", {
       latitude, longitude
     }).then(res=>{
       console.log(res.data);

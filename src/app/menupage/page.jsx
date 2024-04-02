@@ -37,27 +37,24 @@ const Menupage = () => {
     setShowLocationModal(e=>!e);
   }
 
+  let libraryPath = ""
+  libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
+
   useEffect(()=>{
     if(auth.accessToken){
       if(userLocation?.latitude){
         setShowLocationModal(false);
-        axiosPrivate.get(`/book/book/menupage/${userLocation.longitude}/${userLocation.latitude}`).then(res=>{
-          console.log("!!!!!!", res.data);
+        axiosPrivate.get(libraryPath+`/book/menupage/${userLocation.longitude}/${userLocation.latitude}`).then(res=>{
           if(res.data.success){
-            console.log("!!@@!@!@", res.data.data)
             setNearYouBooks([...res.data.data])
             setDisplayedBooks([...res.data.data])
-          }else{
-            console.log("***")
           }
         }).catch(e=>[
           console.log(e)
         ])
 
-        axiosPrivate.get(`/library/library/find/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
-          console.log("\n\n\nLibraries:", res.data, "\n\n\n")
+        axiosPrivate.get(libraryPath+`/library/find/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
           if(res.data.success){
-            console.log("!!!!!!!!!!!!!!!!!!1")
             setLibrariesNearYou(res.data.data);
             setDisplayedLibraries(res.data.data)
           }else{
@@ -72,8 +69,7 @@ const Menupage = () => {
 
   useEffect(()=>{
     if(searchBooksText.length > 0) {
-      axiosPrivate.get(`/book/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
-        console.log("search Results:", res.data)
+      axiosPrivate.get(libraryPath+`/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
         if(res.data.success){
           setDisplayedBooks(res.data.data.books);
           setDisplayedLibraries(res.data.data.libraries)
@@ -115,7 +111,6 @@ const Menupage = () => {
     async function check(){
       const result = await protectRoute()
       if(!result) push("/auth/login")
-      else console.log(auth)
     }
     check()
   }, [])
