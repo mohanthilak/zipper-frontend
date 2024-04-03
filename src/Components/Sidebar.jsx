@@ -52,7 +52,7 @@ const Sidebar = () => {
       }
     }, [auth])
   return (
-    <div className='hidden md:flex h-screen sticky top-0 border w-[20%] max-w-[250px] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
+    <div className='md:flex h-screen sticky top-0 border w-[20%] max-w-[250px] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
         {showLocationModal ? <LocationModal toggleShowLocationModal={toggleShowLocationModal}  />:""}
     
     <div className='flex gap-5 items-center'>
