@@ -6,7 +6,7 @@ import {AiOutlineRight} from "react-icons/ai"
 import useAuth from '@/Hooks/useAuth';
 import ProfileImage from './ProfileImage';
 import useUserLocation from '@/Hooks/useUserLocation';
-import axios, { axiosPrivate } from '@/Axios/axios';
+import axios from '@/Axios/axios';
 import Link from 'next/link';
 import useAxiosPrivate from '@/Hooks/useAxiosPrivate';
 import useUserLibraries from '@/Hooks/useLibraries';

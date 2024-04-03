@@ -109,7 +109,7 @@ const BookDetails = ({params}) => {
               <h4 className="font-medium">Book by {book.author}</h4>
             </div>
             <div className="flex flex-col gap-1 font-medium my-5">
-              <h1>Library: <Link href={`/library/${book?.library?._id}`} className="underline">{book?.library?.name}.</Link></h1>
+              <h1>Library: <Link href={`/librari/${book?.library?._id}`} className="underline">{book?.library?.name}.</Link></h1>
               <h5>Number of times Borrowed: {book?.previousOwners?.length}</h5>
               <h4>Price: Rs.{book?.priceOfBorrowing}/week</h4>
               <h4>Deposite Required: Rs.{book?.mrp} [Refunded after return]</h4>

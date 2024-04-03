@@ -1,8 +1,10 @@
+import Image from 'next/image'
 import React from 'react'
 
 const ProfileImage = ({profilePicture}) => {
   return (
-    <img src={profilePicture} className=' rounded-lg w-16 h-16'  />
+    <Image src={profilePicture} className=' rounded-lg w-16 h-16' />
+    // <img src={profilePicture}   />
   )
 }
 
