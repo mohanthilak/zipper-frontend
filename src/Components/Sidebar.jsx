@@ -24,8 +24,11 @@ const Sidebar = () => {
     useEffect(()=>{
       if(userLocation.latitude && process.env.NEXT_PUBLIC_GeoCodeAccessToken){
         axios.get(`https://us1.locationiq.com/v1/reverse?key=${process.env.NEXT_PUBLIC_GeoCodeAccessToken}&lat=${userLocation.latitude}&lon=${userLocation.longitude}&format=json`).then(res=>{
-          if(res.data.address.neighbourhood) setArea(res.data.address.neighbourhood)
-          else if(res.data.address.suburb) setArea(res.data.address.suburb)
+          if(res.data.address.neighbourhood){
+            setArea(res.data.address.neighbourhood)
+          }else if(res.data.address.suburb){
+            setArea(res.data.address.suburb)
+          }
         }).catch(e=>{
           console.log("could not fetch the address from coordinates: ", e)  
         })

@@ -16,7 +16,6 @@ const CreateLibrary = () => {
     const { push } = useRouter();
     
     let libraryPath = ""
-    console.log({PRODUSERURL:process.env.NEXT_PUBLIC_Library_Prod_URL})
     libraryPath = process.env.NEXT_PUBLIC_Library_Prod_URL
 
 
