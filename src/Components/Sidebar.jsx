@@ -52,19 +52,19 @@ const Sidebar = () => {
       }
     }, [auth])
   return (
-    <div className='md:flex h-screen sticky top-0 border w-[20%] max-w-[250px] bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
+    <div className='hidden md:flex h-screen sticky top-0 border w-[20%] min-w-[250px]  bg-[#F4F4F6] pt-10 p-6  flex-col justify-between'>
         {showLocationModal ? <LocationModal toggleShowLocationModal={toggleShowLocationModal}  />:""}
     
-    <div className='flex gap-5 items-center'>
+    <div className='flex gap-5 items-center '>
 
-        <div>
+        <div className="w-[40%]">
             {auth ? <ProfileImage profilePicture={auth.profilePicture} /> : <></>}
              
           {/* <img className=' rounded-lg w-16 h-16' src={propic} alt="" /> */}
         </div>
-        <div>
+        <div className="w-[60%]">
           <h1 className='text-xl font-bold mb-1 text-[#002379]'>{auth?auth.name:""}</h1>
-          <div className='flex gap-1 items-center mb-2'>
+          <div className='flex flex-col gap-1  mb-2'>
             <p className='text-xs font-semibold leading-4'>{area}</p>
             <p onClick={toggleShowLocationModal} className='cursor-pointer text-[0.7rem]  underline'>Change?</p>
           </div>

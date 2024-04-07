@@ -54,20 +54,20 @@ const UserDetails = () => {
     })
   }
   return (
-    <div className='bg-purple-500'>
+    <div className='w-96'>
       <div>
-        <h3 className="font-bold pb-12  text-xl">Enter Your Details</h3>
+        <h3 className="font-bold pb-8  text-xl">Enter Your Details</h3>
       </div>
 
       <div className='input-box'>
         <label className="text-md font-semibold" htmlFor="">First Name</label><br />
-        <input className="input-styling rounded-md w-[100%]" value={firstName} onChange={(e)=>setFirstName(e.target.value)} type="text" /> 
+        <input className="input-styling rounded-md w-[100%] h-10" value={firstName} onChange={(e)=>setFirstName(e.target.value)} type="text" /> 
       </div>
       <div className='input-box'>
         <label className="text-md font-semibold" htmlFor="">Last Name</label><br />
-        <input className="input-styling rounded-md w-[100%]" value={lastName} onChange={(e)=>setLastName(e.target.value)} type="text" /> 
+        <input className="input-styling rounded-md w-[100%] h-10" value={lastName} onChange={(e)=>setLastName(e.target.value)} type="text" /> 
       </div>
-      <button onClick={handleSubmit} className="submit-btn mb-3 w-full">
+      <button onClick={handleSubmit} className="submit-btn mb-3 h-10 w-full">
           Next
         </button>
     </div>

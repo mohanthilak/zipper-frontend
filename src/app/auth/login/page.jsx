@@ -91,16 +91,16 @@ const Login = () => {
       </div>
 
       <div >
-        <div className="input-box">
+        <div className="input-box ">
           <label className="text-md font-semibold" htmlFor="">Email / Phone Number</label><br />
-          <input className="input-styling rounded-md w-[100%]" value={username} onChange={(e)=>setUsername(e.target.value)} type="text" /> 
+          <input className="input-styling rounded-md bg-blue-100 h-10" value={username} onChange={(e)=>setUsername(e.target.value)} type="text" /> 
         </div>
         <div className="input-box">
           <div className="flex justify-between items-center">
             <label className="text-md font-semibold" htmlFor="">Password</label>
             <span className=" text-xs underline font-md p-0" htmlFor="" >Forgot Password?</span>
           </div>
-          <input className=" input-styling rounded-md" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/> <br />
+          <input className=" input-styling rounded-md h-10" type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/> <br />
         </div>
         <button onClick={handleLogin} className="submit-btn mb-3 w-full">
           SIGN IN

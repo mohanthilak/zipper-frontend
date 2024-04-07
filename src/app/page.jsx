@@ -1,20 +1,17 @@
-"use client"
-import React, { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-// import { redirect } from 'next/server';
+import HomePageNavbar from "@/Components/Home-page-navbar/HomePageNavbar"
+import HomePageMainHero from "./HomePageMainHero"
+import HomePageHowItWorks from "./HomePageHowItWorks"
 
 const Page = () => {
-  const { push } = useRouter();
-  useEffect(()=>{
-    push("/menupage")
-
-  },[])
-  // redirect('/menupage');
 
   return (
-    <>
-      hello world
-    </>
+    <div className="">
+      <HomePageNavbar />
+      <main>
+        <HomePageMainHero />
+        <HomePageHowItWorks />
+      </main>
+    </div>
   )
 }
 
