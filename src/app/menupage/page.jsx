@@ -68,8 +68,9 @@ const Menupage = () => {
   }, [userLocation])
 
   useEffect(()=>{
+    const controller = new AbortController();
     if(searchBooksText.length > 0) {
-      axiosPrivate.get(libraryPath+`/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`).then(res=>{
+      axiosPrivate.get(libraryPath+`/book/search/${searchBooksText}/${userLocation.latitude}/${userLocation.longitude}`, {signal: controller.signal}).then(res=>{
         if(res.data.success){
           setDisplayedBooks(res.data.data.books);
           setDisplayedLibraries(res.data.data.libraries)
@@ -77,13 +78,15 @@ const Menupage = () => {
           setDisplayedBooks([])
           setDisplayedLibraries([])
         }
+      }).catch(e=>{
+        console.log("Error while fetching searched books&libraries:")
       })
     }else{
-      setDisplayedBooks(nearYouBooks)
-      setDisplayedLibraries(librariesNearYou)
+      setDisplayedBooks([...nearYouBooks])
+      setDisplayedLibraries([...librariesNearYou])
     }
+    return ()=> controller.abort();
   }, [searchBooksText])
-
 
   const CalculateDistance = (lat1, lon1, lat2, lon2) => {
     if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -137,7 +140,7 @@ const Menupage = () => {
           <PageHeading title={"Explore"}/>
           <div className='flex items-center justify-between gap-5'>
             <div>
-                <input style={{"boxShadow": "0 1px 10px 0 #808080", "outline": "none"}} onChange={e=>setSearchBooksText(e.target.value)} className=' shadow-lg h-9 w-44 md:w-64  p-2 rounded-2xl' type="text" placeholder=" Search"  />
+                <input style={{"boxShadow": "0 1px 10px 0 #808080", "outline": "none"}} onChange={(e)=>setSearchBooksText(e.target.value)} className=' shadow-lg h-9 w-44 md:w-64  p-2 rounded-2xl' type="text" placeholder=" Search"  />
             </div>
             <NotificationBell />
           </div>
